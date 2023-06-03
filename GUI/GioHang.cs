@@ -63,11 +63,13 @@ namespace GUI
             string getKhachHang = khachhangBUS.checkKhachHang(khachhang);
             switch (getKhachHang)
             {
+
                 case "requireNameCustomer":
                     {
                         MessageBox.Show("Chưa nhập tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                 case "requireCustomer":
                     {
                         MessageBox.Show("Chưa nhập số điện thoại khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
