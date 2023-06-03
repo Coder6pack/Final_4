@@ -45,7 +45,9 @@
     <Compile Include="CTHoaDonDAL.cs" />
     <Compile Include="CT_Luong.cs" />
     <Compile Include="DBAccess.cs" />
+    <Compile Include="GioHangTraiCay.cs" />
     <Compile Include="HoaDonDAL.cs" />
+    <Compile Include="KhachHang.cs" />
     <Compile Include="lo_TraiCayDAL.cs" />
     <Compile Include="NhanVienAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

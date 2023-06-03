@@ -44,7 +44,9 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CTHoaDonBUS.cs" />
     <Compile Include="CT_LuongBUS.cs" />
+    <Compile Include="GioHangTraiCayBUS.cs" />
     <Compile Include="HoaDonBUS.cs" />
+    <Compile Include="KhachHangBUS.cs" />
     <Compile Include="lo_TraiCayBUS.cs" />
     <Compile Include="NhanVienBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

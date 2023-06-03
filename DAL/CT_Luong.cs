@@ -65,5 +65,38 @@ namespace DAL
             }
             return dsctl;
         }
+
+        public bool themCTLuong(CT_LuongDTO ctluong)
+        {
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("pro_themCTLuong", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@nhanVien_id", ctluong.nhanVien_id);
+            cmd.Parameters.AddWithValue("@luong", ctluong.luong);
+            cmd.Parameters.AddWithValue("@gioDangNhap", ctluong.gioDangNhap);
+            cmd.Parameters.AddWithValue("@thang_Nam", ctluong.thang_Nam);
+            cmd.Parameters.AddWithValue("@tongLuong", ctluong.tongLuong);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
+            return rowsAffected > 0;
+        }
+
+        public bool capNhatCTLuong(CT_LuongDTO ctluong)
+        {
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("pro_capNhatCTLuong", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", ctluong.id);
+            cmd.Parameters.AddWithValue("@nhanVien_id", ctluong.nhanVien_id);
+            cmd.Parameters.AddWithValue("@luong", ctluong.luong);
+            cmd.Parameters.AddWithValue("@gioDangNhap", ctluong.gioDangNhap);
+            cmd.Parameters.AddWithValue("@thang_Nam", ctluong.thang_Nam);
+            cmd.Parameters.AddWithValue("@tongLuong", ctluong.tongLuong);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
+            return rowsAffected > 0;
+        }
     }
 }

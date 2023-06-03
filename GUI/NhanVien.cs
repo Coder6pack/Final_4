@@ -245,6 +245,7 @@ namespace Final3
         private void txt_timKiem_CTL_TextChanged(object sender, EventArgs e)
         {
             dgv_ctLuong.DataSource = ctLuongBUS.timKiemCT_Luong(txt_timKiem_CTL.Text);
+            reset_CTL();
         }
 
         private void panel4_Paint_1(object sender, PaintEventArgs e)
@@ -307,6 +308,69 @@ namespace Final3
         private void txt_tongLuong_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btn_them_CTL_Click(object sender, EventArgs e)
+        {
+            CT_LuongDTO ctluong = new CT_LuongDTO();
+            ctluong.nhanVien_id = int.Parse(txt_maNhanVien_ctLuong.Text);
+            ctluong.luong = SqlMoney.Parse(txt_luong.Text);
+            ctluong.gioDangNhap = int.Parse(txt_gioDangNhap.Text);
+            ctluong.thang_Nam = txt_thangNam.Text;
+            ctluong.tongLuong = SqlMoney.Parse(txt_tongLuong.Text);
+
+            if (ctLuongBUS.themCTLuong(ctluong))
+            {
+                MessageBox.Show("Thêm chi tiết lương thành công","Thông Báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reset_CTL();
+                dgv_ctLuong.DataSource = ctLuongBUS.loadDSLuong();
+            }
+            else
+            {
+                MessageBox.Show("Thêm chi tiết lương thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_capNhat_CTL_Click(object sender, EventArgs e)
+        {
+            CT_LuongDTO ctluong = new CT_LuongDTO();
+            ctluong.id = int.Parse(txt_maLuong.Text);
+            ctluong.nhanVien_id = int.Parse(txt_maNhanVien_ctLuong.Text);
+            ctluong.luong = SqlMoney.Parse(txt_luong.Text);
+            ctluong.gioDangNhap = int.Parse(txt_gioDangNhap.Text);
+            ctluong.thang_Nam = txt_thangNam.Text;
+            ctluong.tongLuong = SqlMoney.Parse(txt_tongLuong.Text);
+
+            if (ctLuongBUS.capNhatCTLuong(ctluong))
+            {
+                MessageBox.Show("Cập nhật chi tiết lương thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reset_CTL();
+                dgv_ctLuong.DataSource = ctLuongBUS.loadDSLuong();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật chi tiết lương thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reset_CTL()
+        {
+            txt_maLuong.Text = txt_maNhanVien_ctLuong.Text = txt_luong.Text = txt_gioDangNhap.Text = txt_thangNam.Text = txt_tongLuong.Text = "";
+        }
+        private void btn_reset_CTL_Click(object sender, EventArgs e)
+        {
+            reset_CTL();
+        }
+
+        private void btn_timKiem_CTL_Click(object sender, EventArgs e)
+        {
+            dgv_ctLuong.DataSource = ctLuongBUS.timKiemCT_Luong(txt_timKiem_CTL.Text);
+            reset_CTL();
+        }
+
+        private void dgv_ctLuong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
