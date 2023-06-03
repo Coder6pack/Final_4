@@ -21,5 +21,15 @@ namespace BUS
         {
             return ctLuong.timKiemCTLuong(tenid);
         }
+
+        public bool themCTLuong(CT_LuongDTO ctluong)
+        {
+            return ctLuong.themCTLuong(ctluong);
+        }
+
+        public bool capNhatCTLuong(CT_LuongDTO ctluong)
+        {
+            return ctLuong.capNhatCTLuong(ctluong);
+        }
     }
 }

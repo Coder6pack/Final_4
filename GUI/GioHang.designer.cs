@@ -31,13 +31,6 @@
             this.dgv_dsTraiCay = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgv_dsDonHang = new System.Windows.Forms.DataGridView();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.nud_soLuong = new System.Windows.Forms.NumericUpDown();
@@ -70,7 +63,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traiCay_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gia_cthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soLuong_cthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loaiTraiCay_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loTraiCay_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenTraiCay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +93,8 @@
             this.dgv_dsTraiCay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_dsTraiCay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.loaiTraiCay_id,
+            this.loTraiCay_id,
             this.tenTraiCay,
             this.gia,
             this.soLuong,
@@ -107,6 +110,7 @@
             this.dgv_dsTraiCay.RowTemplate.Height = 33;
             this.dgv_dsTraiCay.Size = new System.Drawing.Size(797, 1059);
             this.dgv_dsTraiCay.TabIndex = 1;
+            this.dgv_dsTraiCay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dsTraiCay_CellClick);
             // 
             // panel3
             // 
@@ -148,12 +152,11 @@
             this.dgv_dsDonHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_dsDonHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17});
+            this.traiCay_id,
+            this.gia_cthd,
+            this.soLuong_cthd,
+            this.giamGia,
+            this.tongGia});
             this.dgv_dsDonHang.Location = new System.Drawing.Point(2, 305);
             this.dgv_dsDonHang.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_dsDonHang.Name = "dgv_dsDonHang";
@@ -161,55 +164,6 @@
             this.dgv_dsDonHang.RowTemplate.Height = 33;
             this.dgv_dsDonHang.Size = new System.Drawing.Size(565, 221);
             this.dgv_dsDonHang.TabIndex = 35;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Mã trái cây";
-            this.Column11.MinimumWidth = 10;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Tên trái cây";
-            this.Column12.MinimumWidth = 10;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Loại";
-            this.Column13.MinimumWidth = 10;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Lô";
-            this.Column14.MinimumWidth = 10;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Hạn sử dụng";
-            this.Column15.MinimumWidth = 10;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Giá";
-            this.Column16.MinimumWidth = 10;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Số lượng";
-            this.Column17.MinimumWidth = 10;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
             // 
             // btn_them
             // 
@@ -274,6 +228,7 @@
             this.ptb_anhTraiCay.Margin = new System.Windows.Forms.Padding(2);
             this.ptb_anhTraiCay.Name = "ptb_anhTraiCay";
             this.ptb_anhTraiCay.Size = new System.Drawing.Size(152, 132);
+            this.ptb_anhTraiCay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_anhTraiCay.TabIndex = 28;
             this.ptb_anhTraiCay.TabStop = false;
             // 
@@ -363,6 +318,7 @@
             this.btn_kiemTra.TabIndex = 9;
             this.btn_kiemTra.Text = "Kiểm tra";
             this.btn_kiemTra.UseVisualStyleBackColor = true;
+            this.btn_kiemTra.Click += new System.EventHandler(this.btn_kiemTra_Click);
             // 
             // txt_tenKH
             // 
@@ -530,13 +486,74 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Ngày:";
             // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Mã trái cây";
+            this.Column11.MinimumWidth = 10;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // traiCay_id
+            // 
+            this.traiCay_id.DataPropertyName = "traiCay_id";
+            this.traiCay_id.HeaderText = "Mã trái cây";
+            this.traiCay_id.MinimumWidth = 10;
+            this.traiCay_id.Name = "traiCay_id";
+            this.traiCay_id.ReadOnly = true;
+            // 
+            // gia_cthd
+            // 
+            this.gia_cthd.DataPropertyName = "gia_cthd";
+            this.gia_cthd.HeaderText = "Giá";
+            this.gia_cthd.MinimumWidth = 10;
+            this.gia_cthd.Name = "gia_cthd";
+            this.gia_cthd.ReadOnly = true;
+            // 
+            // soLuong_cthd
+            // 
+            this.soLuong_cthd.HeaderText = "Số lượng";
+            this.soLuong_cthd.MinimumWidth = 10;
+            this.soLuong_cthd.Name = "soLuong_cthd";
+            this.soLuong_cthd.ReadOnly = true;
+            // 
+            // giamGia
+            // 
+            this.giamGia.DataPropertyName = "giamGia";
+            this.giamGia.HeaderText = "Giảm giá";
+            this.giamGia.MinimumWidth = 10;
+            this.giamGia.Name = "giamGia";
+            this.giamGia.ReadOnly = true;
+            // 
+            // tongGia
+            // 
+            this.tongGia.DataPropertyName = "tongGia";
+            this.tongGia.HeaderText = "Tổng giá";
+            this.tongGia.MinimumWidth = 10;
+            this.tongGia.Name = "tongGia";
+            // 
             // id
             // 
             this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Mã";
+            this.id.HeaderText = "Mã trái cây";
             this.id.MinimumWidth = 10;
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            // 
+            // loaiTraiCay_id
+            // 
+            this.loaiTraiCay_id.DataPropertyName = "loaiTraiCay_id";
+            this.loaiTraiCay_id.HeaderText = "Loại trái cây";
+            this.loaiTraiCay_id.MinimumWidth = 10;
+            this.loaiTraiCay_id.Name = "loaiTraiCay_id";
+            this.loaiTraiCay_id.ReadOnly = true;
+            // 
+            // loTraiCay_id
+            // 
+            this.loTraiCay_id.DataPropertyName = "loTraiCay_id";
+            this.loTraiCay_id.HeaderText = "Lô trái cây";
+            this.loTraiCay_id.MinimumWidth = 10;
+            this.loTraiCay_id.Name = "loTraiCay_id";
+            this.loTraiCay_id.ReadOnly = true;
             // 
             // tenTraiCay
             // 
@@ -600,7 +617,7 @@
             this.Name = "frm_gioHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GioHang";
-           // this.Load += new System.EventHandler(this.GioHang_Load);
+            this.Load += new System.EventHandler(this.frm_gioHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dsTraiCay)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -618,13 +635,6 @@
         private System.Windows.Forms.DataGridView dgv_dsTraiCay;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgv_dsDonHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.NumericUpDown nud_soLuong;
@@ -657,7 +667,15 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traiCay_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gia_cthd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soLuong_cthd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giamGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loaiTraiCay_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loTraiCay_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenTraiCay;
         private System.Windows.Forms.DataGridViewTextBoxColumn gia;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;

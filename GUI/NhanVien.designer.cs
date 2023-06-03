@@ -175,6 +175,7 @@
             this.btn_them_CTL.TabIndex = 38;
             this.btn_them_CTL.Text = "Thêm";
             this.btn_them_CTL.UseVisualStyleBackColor = true;
+            this.btn_them_CTL.Click += new System.EventHandler(this.btn_them_CTL_Click);
             // 
             // btn_capNhat_CTL
             // 
@@ -186,6 +187,7 @@
             this.btn_capNhat_CTL.TabIndex = 37;
             this.btn_capNhat_CTL.Text = "Cập nhật";
             this.btn_capNhat_CTL.UseVisualStyleBackColor = true;
+            this.btn_capNhat_CTL.Click += new System.EventHandler(this.btn_capNhat_CTL_Click);
             // 
             // btn_reset_CTL
             // 
@@ -197,6 +199,7 @@
             this.btn_reset_CTL.TabIndex = 36;
             this.btn_reset_CTL.Text = "Reset";
             this.btn_reset_CTL.UseVisualStyleBackColor = true;
+            this.btn_reset_CTL.Click += new System.EventHandler(this.btn_reset_CTL_Click);
             // 
             // panel4
             // 
@@ -258,6 +261,7 @@
             this.btn_timKiem_CTL.TabIndex = 33;
             this.btn_timKiem_CTL.Text = "Tìm";
             this.btn_timKiem_CTL.UseVisualStyleBackColor = true;
+            this.btn_timKiem_CTL.Click += new System.EventHandler(this.btn_timKiem_CTL_Click);
             // 
             // txt_timKiem_CTL
             // 
@@ -307,6 +311,7 @@
             this.txt_maLuong.Location = new System.Drawing.Point(206, 98);
             this.txt_maLuong.Margin = new System.Windows.Forms.Padding(4);
             this.txt_maLuong.Name = "txt_maLuong";
+            this.txt_maLuong.ReadOnly = true;
             this.txt_maLuong.Size = new System.Drawing.Size(326, 32);
             this.txt_maLuong.TabIndex = 27;
             // 
@@ -830,6 +835,7 @@
             this.dgv_ctLuong.Size = new System.Drawing.Size(2368, 871);
             this.dgv_ctLuong.TabIndex = 0;
             this.dgv_ctLuong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ctLuong_CellClick);
+            this.dgv_ctLuong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ctLuong_CellContentClick);
             // 
             // luong_id
             // 
