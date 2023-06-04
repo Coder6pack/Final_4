@@ -114,8 +114,8 @@
             // 
             // pictureBox2
             // 
-            //this.pictureBox2.BackgroundImage = global::GUI.Properties.Resources.bgc;
-            //this.pictureBox2.Image = global::GUI.Properties.Resources.logoFruit_removebg;
+            this.pictureBox2.BackgroundImage = global::GUI.Properties.Resources.bgc;
+            this.pictureBox2.Image = global::GUI.Properties.Resources.logoFruit_removebg;
             this.pictureBox2.Location = new System.Drawing.Point(32, 124);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::GUI.Properties.Resources.bgc;
+            this.BackgroundImage = global::GUI.Properties.Resources.bgc;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(512, 330);
             this.Controls.Add(this.pictureBox2);

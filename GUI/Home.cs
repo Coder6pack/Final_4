@@ -8,14 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace Final3
 {
     public partial class frm_home : Form
     {
+        
+        string id="",tenNhanVien="",taiKhoan = "", matKhau = "", quyen = "";
         public frm_home()
         {
             InitializeComponent();
+        }
+        public frm_home(string id, string tenNhanVien, string taiKhoan, string matKhau, string quyen)
+        {
+            InitializeComponent();
+            this.id = id;
+            this.tenNhanVien = tenNhanVien;
+            this.taiKhoan = taiKhoan;
+            this.matKhau = matKhau;
+            this.quyen = quyen;
         }
 
         // Tạo đối tượng form con
@@ -119,7 +132,14 @@ namespace Final3
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            openFormChid(new frm_nhanVien());
+            if(quyen=="Quản lý")
+            {
+                openFormChid(new frm_nhanVien());
+            }    
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }    
         }
 
         private void btn_gioHang_Click(object sender, EventArgs e)
@@ -129,12 +149,27 @@ namespace Final3
 
         private void btn_hoaDon_Click(object sender, EventArgs e)
         {
-            openFormChid(new frm_HoaDon());
+            if (quyen == "Quản lý")
+            {
+                openFormChid(new frm_HoaDon());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btn_kho_Click(object sender, EventArgs e)
         {
-            openFormChid(new frm_quanLyTraiCay());
+            if (quyen == "Quản lý")
+            {
+                openFormChid(new frm_quanLyTraiCay());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_dangXuat_Click(object sender, EventArgs e)

@@ -34,7 +34,7 @@ namespace DAL
                     traiCay.soLuong = reader.GetInt32(5);
                     traiCay.HSD = reader.GetDateTime(6);
                     traiCay.trangThai = reader.GetInt32(7);
-                    traiCay.hinh = reader.GetString(8);
+                    //traiCay.hinh = reader.GetString(8);
                     dsGioHang.Add(traiCay);
 
                 }
