@@ -15,21 +15,26 @@ namespace DAL
             string kh = null;
             SqlConnection conn = sqlConnecTionData.connect();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * from khachHang Where sdt = @sdt and tenKhachHang = @tenKhachHang",conn);
+            SqlCommand cmd = new SqlCommand("SELECT * from khachHang Where sdt like @sdt and tenKhachHang like @tenKhachHang",conn);
             cmd.Parameters.AddWithValue("@sdt","%" + khachhang.sdt +"%");
             cmd.Parameters.AddWithValue("@tenKhachHang", "%" +khachhang.tenKhachHang +"%" );
             cmd.Connection = conn;
             SqlDataReader reader = cmd.ExecuteReader();
             if(reader.HasRows)
             {
-                kh = "Khách hàng đã là thành viên";
+                while (reader.Read())
+                {
+                    kh = reader.GetInt32(0).ToString();
+                    return kh;
+                }
+                reader.Close();
+                conn.Close();
             }
             else
             {
-                kh = "Khách hàng không là thành viên";
+                return "Khách hàng không là thành viên";
             }
-            reader.Close();
-            conn.Close();
+
             return kh;
                 
         }
@@ -38,7 +43,7 @@ namespace DAL
         {
             SqlConnection conn = sqlConnecTionData.connect();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO khachHang VALUES(@sdt,@tenKhachHang)", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO khachHang VALUES(@tenKhachHang,@sdt)", conn);
             cmd.Parameters.AddWithValue("@sdt", khachHang.sdt);
             cmd.Parameters.AddWithValue("@tenKhachHang", khachHang.tenKhachHang);
             int rowsAffected = cmd.ExecuteNonQuery();

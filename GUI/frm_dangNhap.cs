@@ -15,7 +15,7 @@ namespace Final3
 {
     public partial class frm_dangNhap : Form
     {
-        NhanVien nhanvien = new NhanVien();
+        NhanVien nhanvienDangNhap = new NhanVien();
         NhanVienBUS nhanvienBUS = new NhanVienBUS();
         public frm_dangNhap()
         {
@@ -28,11 +28,11 @@ namespace Final3
 
  
 
-        private void btn_dangNhap_Click(object sender, EventArgs e)
+        public void btn_dangNhap_Click(object sender, EventArgs e)
         {
-            nhanvien.taiKhoan = txt_taiKhoan.Text;
-            nhanvien.matKhau = txt_matKhau.Text;
-            string getUser = nhanvienBUS.checkLogin(nhanvien);
+            nhanvienDangNhap.taiKhoan = txt_taiKhoan.Text;
+            nhanvienDangNhap.matKhau = txt_matKhau.Text;
+            string getUser = nhanvienBUS.checkLogin(nhanvienDangNhap);
 
             switch (getUser)
             {
