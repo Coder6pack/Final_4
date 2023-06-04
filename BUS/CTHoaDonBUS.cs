@@ -14,5 +14,9 @@ namespace BUS
         {
             return cthoadon.loadCTHoaDon();
         }
+        public bool themCTHoaDon(CTHoaDonDTO cthd)
+        {
+            return cthoadon.themCTHoaDon(cthd);
+        }
     }
 }

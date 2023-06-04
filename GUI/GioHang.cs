@@ -16,11 +16,24 @@ namespace GUI
     public partial class frm_gioHang : Form
     {
         GioHangTraiCayBUS gioHangBus = new GioHangTraiCayBUS();
+        CTHoaDonBUS ctHoaDonBUS = new CTHoaDonBUS();
+        HoaDonBUS hoaDonBUS = new HoaDonBUS();
+
         public frm_gioHang()
         {
             InitializeComponent();
+            txt_sdt.Text = "Lâm Hoài Nhơn";
+            txt_tenKH.Text = "0899445790";
         }
+        string ids = "";
+        public frm_gioHang(string ids)
+        {
+            InitializeComponent();
+            this.ids = ids;
+            txt_sdt.Text = "Lâm Hoài Nhơn";
+            txt_tenKH.Text = "0899445790";
 
+        }
         private void frm_gioHang_Load(object sender, EventArgs e)
         {
             dgv_dsTraiCay.DataSource = gioHangBus.loadGioHang();
@@ -58,6 +71,7 @@ namespace GUI
         }
         KhachHangBUS khachhangBUS = new KhachHangBUS();
 
+        string khachHang_ids = "";
         private void btn_kiemTra_Click(object sender, EventArgs e)
         {
             KhachHangDTO khachhang = new KhachHangDTO();
@@ -99,8 +113,7 @@ namespace GUI
                     
             }
             MessageBox.Show("Khách hàng đã là thành viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MessageBox.Show(getKhachHang);
-
+            khachHang_ids = getKhachHang;
         }
 
         public void clearText()
@@ -111,7 +124,7 @@ namespace GUI
         SqlMoney tamTinh = 0;
         SqlMoney thanhTien = 0;
         SqlMoney giamGia_thanhTien = 0;
-
+ 
 
         private void btn_them_Click(object sender, EventArgs e)
         {
@@ -152,6 +165,36 @@ namespace GUI
                 
             }
 
+        }
+        private void btn_thanhToan_Click(object sender, EventArgs e)
+        {
+            // Hoá đơn
+            HoaDonDTO hoaDon = new HoaDonDTO();
+            hoaDon.khachHang_id = int.Parse(khachHang_ids);
+            hoaDon.nhanVien_id = int.Parse(ids);
+            hoaDon.ngayLap = dtp_ngayLap.Value;
+            hoaDon.thanhTien = thanhTien;
+
+            // Chi tiết hoá đơn
+            //if (hoaDonBUS.ThemHoaDon(hoaDon))
+            //{
+            //    MessageBox.Show("Đã thanh toán hoá đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+
+            for (int i = 0; i < dgv_dsDonHang.Rows.Count-1; i++)
+            {
+                CTHoaDonDTO cthd = new CTHoaDonDTO();
+                MessageBox.Show(dgv_dsDonHang.Rows[i].Cells[0].Value.ToString(), "Ten");
+                cthd.traiCay_id = int.Parse(dgv_dsDonHang.Rows[i].Cells[0].Value.ToString());
+                cthd.gia = SqlMoney.Parse(dgv_dsDonHang.Rows[i].Cells[1].Value.ToString());
+                cthd.soLuong = int.Parse(dgv_dsDonHang.Rows[i].Cells[2].Value.ToString());
+                cthd.giamGia = SqlMoney.Parse(dgv_dsDonHang.Rows[i].Cells[3].Value.ToString());
+                cthd.tongGia = SqlMoney.Parse(dgv_dsDonHang.Rows[i].Cells[4].Value.ToString());
+                if (ctHoaDonBUS.themCTHoaDon(cthd))
+                {
+                    MessageBox.Show("Done", "Thong bao");
+                }
+            }
         }
 
         //private void GioHang_Load(object sender, EventArgs e)
