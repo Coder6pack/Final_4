@@ -16,6 +16,7 @@ namespace Final3
     public partial class frm_quanLyTraiCay : Form
     {
         TraiCayBUS traicayBUS = new TraiCayBUS();
+        quanLyLoaiTraiCayBUS quanlytraicaybus = new quanLyLoaiTraiCayBUS();
         public frm_quanLyTraiCay()
         {
             InitializeComponent();
@@ -300,6 +301,7 @@ namespace Final3
         {
             dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
             dgv_dsTraiCay.DataSource = traicayBUS.loadTraiCay();
+            dgv_loaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
         }
 
         private void btn_them_lohang_Click(object sender, EventArgs e)
@@ -312,6 +314,7 @@ namespace Final3
                 lo_traicaybus.loadlo_TraiCay();
                 dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
             }
+            else
             {
                 MessageBox.Show("Thêm lô hàng thất bại");
             }
@@ -501,6 +504,77 @@ namespace Final3
         private void txt_timKiem_TextChanged_1(object sender, EventArgs e)
         {
             dgv_dsTraiCay.DataSource = traicayBUS.timKiemTraiCay(txt_timKiem.Text);
+        }
+
+        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btn_capnhat_loaitraicay_Click(object sender, EventArgs e)
+        {
+            quanLyLoaiTraiCay lo_traicays = new quanLyLoaiTraiCay();
+            lo_traicays.id = int.Parse(txt_maloaitraicay.Text);
+            lo_traicays.tenLoaiTraiCay = txt_tenloaitraicay.Text;
+            lo_traicays.trangThai = int.Parse(txt_trangthai_loaitraicay.Text);
+            if (quanlytraicaybus.CapNhatloaiTraiCay(lo_traicays))
+            {
+                MessageBox.Show("Cập Nhật lô hàng thành công");
+                quanlytraicaybus.loadquanLyLoaiTraiCay();
+                dgv_loaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật lô hàng thất bại");
+            }
+        }
+
+        private void btn_xoa_loaitraicay_Click(object sender, EventArgs e)
+        {
+            int maloaitraicay = int.Parse(txt_malohang.Text);
+            if (quanlytraicaybus.XoaloaiTraiCay(maloaitraicay))
+            {
+                MessageBox.Show("Xóa loại trái cây thành công");
+                quanlytraicaybus.loadquanLyLoaiTraiCay();
+                dgv_loaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Xóa loại trái cây thất bại");
+            }
+        }
+
+        private void btn_them_loaitraicay_Click(object sender, EventArgs e)
+        {
+            quanLyLoaiTraiCay lo_traicays = new quanLyLoaiTraiCay();
+            lo_traicays.tenLoaiTraiCay = txt_tenloaitraicay.Text;
+            lo_traicays.trangThai = int.Parse(txt_trangthai_loaitraicay.Text);
+            if (quanlytraicaybus.ThemloaiTraiCay(lo_traicays))
+            {
+                MessageBox.Show("Thêm loại trái cây thành công");
+                quanlytraicaybus.loadquanLyLoaiTraiCay();
+                dgv_loaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Thêm loại trái cây thất bại");
+            }
+        }
+
+        private void btn_timkiem_loaitraicay_Click(object sender, EventArgs e)
+        {
+            dgv_loaitraicay.DataSource = quanlytraicaybus.TimkiemloaiTraiCay(int.Parse(txt_timkiem_loaitraicay.Text));
+        }
+
+        private void dgv_loaitraicay_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                DataGridViewRow row = dgv_loaitraicay.Rows[e.RowIndex];
+                txt_maloaitraicay.Text = row.Cells["maloai"].Value.ToString();
+                txt_tenloaitraicay.Text = row.Cells["tenloaitraicay"].Value.ToString();
+                txt_trangthai_loaitraicay.Text= row.Cells["trangthaitraicay"].Value.ToString();
+            }
         }
     }
 }

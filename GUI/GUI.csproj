@@ -107,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="QuanLyTraiCay.resx">
       <DependentUpon>QuanLyTraiCay.cs</DependentUpon>
@@ -133,6 +134,12 @@
       <Project>{67267ab4-3081-400a-b98a-99b050a1b036}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoFruit-removebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgc.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

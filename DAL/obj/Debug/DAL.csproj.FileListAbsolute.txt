@@ -7,3 +7,11 @@ C:\Users\nhon\Desktop\Final4\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\nhon\Desktop\Final4\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\nhon\Desktop\Final4\DAL\obj\Debug\DAL.dll
 C:\Users\nhon\Desktop\Final4\DAL\obj\Debug\DAL.pdb
+C:\Users\Admin\Source\Repos\Final_4\DAL\bin\Debug\DAL.dll
+C:\Users\Admin\Source\Repos\Final_4\DAL\bin\Debug\DAL.pdb
+C:\Users\Admin\Source\Repos\Final_4\DAL\bin\Debug\DTO.dll
+C:\Users\Admin\Source\Repos\Final_4\DAL\bin\Debug\DTO.pdb
+C:\Users\Admin\Source\Repos\Final_4\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\Final_4\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Final_4\DAL\obj\Debug\DAL.dll
+C:\Users\Admin\Source\Repos\Final_4\DAL\obj\Debug\DAL.pdb

@@ -66,7 +66,7 @@ namespace DAL
                     nhanvien.sdt = reader.GetString(7);
                     nhanvien.diaChi = reader.GetString(8);
                     nhanvien.trangThai = reader.GetInt32(9);
-                    nhanvien.hinh = reader.GetString(10);
+                    //nhanvien.hinh = reader.GetString(10);
                     dsnv.Add(nhanvien);
 
                 }

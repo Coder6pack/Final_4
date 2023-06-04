@@ -49,6 +49,7 @@
     <Compile Include="lo_TraiCayDTO.cs" />
     <Compile Include="NhanVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quanLyLoaiTraiCay.cs" />
     <Compile Include="TraiCayDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
