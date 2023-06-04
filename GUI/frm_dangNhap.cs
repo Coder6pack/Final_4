@@ -1,10 +1,12 @@
 ﻿using BUS;
 using DTO;
 using Final3;
+using GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,6 +32,10 @@ namespace Final3
 
         public void btn_dangNhap_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost;Initial Catalog=quan_trai_cay;Integrated Security=True");
+            SqlDataAdapter da = new SqlDataAdapter("Select * from nhanVien where taiKhoan = N'" + txt_taiKhoan.Text + "' and matKhau = N'" + txt_matKhau.Text + "'", conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
             nhanvienDangNhap.taiKhoan = txt_taiKhoan.Text;
             nhanvienDangNhap.matKhau = txt_matKhau.Text;
             string getUser = nhanvienBUS.checkLogin(nhanvienDangNhap);
@@ -42,7 +48,7 @@ namespace Final3
             }
 
             MessageBox.Show("Xin chúc mừng bạn đã đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            frm_home home = new frm_home();
+            frm_home home = new frm_home(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString(), dt.Rows[0][3].ToString(), dt.Rows[0][4].ToString());
             home.ShowDialog();
         }
 
