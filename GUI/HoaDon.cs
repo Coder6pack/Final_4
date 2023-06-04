@@ -46,5 +46,10 @@ namespace GUI
             hoadondtos.chietKhau = int.Parse(txt_chietkhau_hoadon.Text);
             hoadondtos.trangThai = int.Parse(txt_trangthai.Text);
         }
+
+        private void btn_capnhat_hoadon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

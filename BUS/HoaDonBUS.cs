@@ -14,13 +14,9 @@ namespace BUS
         {
             return hoadons.loadDSHoaDon();
         }
-        //public bool ThemHoaDon(HoaDonDTO HoaDonDTOs)
-        //{
-        //    return hoadons.ThemHoaDon(HoaDonDTOs);
-        //}
-        //public bool ThemCTHoaDon(CTHoaDonDTO cthoadondto)
-        //{
-        //    return hoadons.ThemCTHoaDon(cthoadondto);
-        //}
+        public bool ThemHoaDon(HoaDonDTO HoaDonDTOs)
+        {
+            return hoadons.themHoaDon(HoaDonDTOs);
+        }
     }
 }

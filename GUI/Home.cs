@@ -1,4 +1,5 @@
-﻿using GUI;
+﻿using DTO;
+using GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,7 +110,10 @@ namespace Final3
 
         private void frm_home_Load(object sender, EventArgs e)
         {
-            openFormChid(new frm_gioHang());
+            openFormChid(new frm_gioHang(this.id));
+            lbl_maNhanVien.Text = this.id;
+            lbl_tenNhanVien.Text = this.tenNhanVien;
+
         }
 
         private void button6_Click_1(object sender, EventArgs e)
@@ -119,7 +123,14 @@ namespace Final3
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            openFormChid(new frm_nhanVien());
+            if (quyen == "Quản lý")
+            {
+                openFormChid(new frm_nhanVien());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_gioHang_Click(object sender, EventArgs e)
@@ -129,17 +140,49 @@ namespace Final3
 
         private void btn_hoaDon_Click(object sender, EventArgs e)
         {
-            openFormChid(new frm_HoaDon());
+            if (quyen == "Quản lý")
+            {
+                openFormChid(new frm_HoaDon());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_kho_Click(object sender, EventArgs e)
         {
-            openFormChid(new frm_quanLyTraiCay());
+            if (quyen == "Quản lý")
+            {
+                openFormChid(new frm_quanLyTraiCay());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_dangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        string id = "", tenNhanVien = "", taiKhoan = "", matKhau = "", quyen = "";
+        public frm_home(string id, string tenNhanVien, string taiKhoan, string matKhau, string quyen)
+        {
+            InitializeComponent();
+            this.id = id;
+            this.tenNhanVien = tenNhanVien;
+            this.taiKhoan = taiKhoan;
+            this.matKhau = matKhau;
+            this.quyen = quyen;
+        }
+
+
     }
 }
