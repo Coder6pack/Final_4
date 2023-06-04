@@ -20,3 +20,14 @@ C:\Users\nhon\Desktop\final5\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 C:\Users\nhon\Desktop\final5\BUS\obj\Debug\BUS.csproj.CopyComplete
 C:\Users\nhon\Desktop\final5\BUS\obj\Debug\BUS.dll
 C:\Users\nhon\Desktop\final5\BUS\obj\Debug\BUS.pdb
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\bin\Debug\BUS.dll
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\bin\Debug\BUS.pdb
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\bin\Debug\DAL.dll
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\bin\Debug\DTO.dll
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\bin\Debug\DAL.pdb
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\bin\Debug\DTO.pdb
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\obj\Debug\BUS.dll
+C:\Users\Admin\Source\Repos\Final_4_3\BUS\obj\Debug\BUS.pdb

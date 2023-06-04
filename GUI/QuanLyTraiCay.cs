@@ -296,10 +296,12 @@ namespace Final3
 
         }
         public lo_TraiCayBUS lo_traicaybus = new lo_TraiCayBUS();
+        public quanLyLoaiTraiCayBUS quanlytraicaybus = new quanLyLoaiTraiCayBUS();
         private void frm_quanLyTraiCay_Load(object sender, EventArgs e)
         {
             dgv_lohang.DataSource = lo_traicaybus.loadlo_TraiCay();
             dgv_dsTraiCay.DataSource = traicayBUS.loadTraiCay();
+            dgv_bangloaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
         }
 
         private void btn_them_lohang_Click(object sender, EventArgs e)
@@ -501,6 +503,72 @@ namespace Final3
         private void txt_timKiem_TextChanged_1(object sender, EventArgs e)
         {
             dgv_dsTraiCay.DataSource = traicayBUS.timKiemTraiCay(txt_timKiem.Text);
+        }
+
+        private void dgv_bangloaitraicay_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                DataGridViewRow row = dgv_bangloaitraicay.Rows[e.RowIndex];
+                txt_maloaitraicay.Text = row.Cells["maloai"].Value.ToString();
+                txt_tenloaitraicay.Text = row.Cells["tenloaitraicay"].Value.ToString();
+                txt_trangthailoaitraicay.Text = row.Cells["trangthailoai"].Value.ToString();
+            }
+        }
+
+        private void btn_them_loai_Click(object sender, EventArgs e)
+        {
+            quanLyLoaiTraiCay lo_traicays = new quanLyLoaiTraiCay();
+            lo_traicays.tenLoaiTraiCay = txt_tenloaitraicay.Text;
+            lo_traicays.trangThai = int.Parse(txt_trangthailoaitraicay.Text);
+            if (quanlytraicaybus.ThemloaiTraiCay(lo_traicays))
+            {
+                MessageBox.Show("Thêm loại trái cây thành công");
+                quanlytraicaybus.loadquanLyLoaiTraiCay();
+                dgv_bangloaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Thêm loại trái cây thất bại");
+            }
+        }
+
+        private void btn_xoa_loai_Click(object sender, EventArgs e)
+        {
+            int maloaitraicay = int.Parse(txt_maloaitraicay.Text);
+            if (quanlytraicaybus.XoaloaiTraiCay(maloaitraicay))
+            {
+                MessageBox.Show("Xóa loại trái cây thành công");
+                quanlytraicaybus.loadquanLyLoaiTraiCay();
+                dgv_bangloaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Xóa loại trái cây thất bại");
+            }
+        }
+
+        private void btn_capnhatloai_Click(object sender, EventArgs e)
+        {
+            quanLyLoaiTraiCay lo_traicays = new quanLyLoaiTraiCay();
+            lo_traicays.id = int.Parse(txt_maloaitraicay.Text);
+            lo_traicays.tenLoaiTraiCay = txt_tenloaitraicay.Text;
+            lo_traicays.trangThai = int.Parse(txt_trangthailoaitraicay.Text);
+            if (quanlytraicaybus.CapNhatloaiTraiCay(lo_traicays))
+            {
+                MessageBox.Show("Cập Nhật lô hàng thành công");
+                quanlytraicaybus.loadquanLyLoaiTraiCay();
+                dgv_bangloaitraicay.DataSource = quanlytraicaybus.loadquanLyLoaiTraiCay();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật lô hàng thất bại");
+            }
+        }
+
+        private void btn_tim_loai_Click(object sender, EventArgs e)
+        {
+            dgv_bangloaitraicay.DataSource = quanlytraicaybus.TimkiemloaiTraiCay(int.Parse(txt_timkiem_loai.Text));
         }
     }
 }

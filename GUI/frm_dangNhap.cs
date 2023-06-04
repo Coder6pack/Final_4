@@ -56,5 +56,17 @@ namespace Final3
         {
             Application.Exit();
         }
+
+        private void chkb_hienmatkhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkb_hienmatkhau.Checked)
+            {
+                txt_matKhau.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                txt_matKhau.UseSystemPasswordChar = false;
+            }    
+        }
     }
 }

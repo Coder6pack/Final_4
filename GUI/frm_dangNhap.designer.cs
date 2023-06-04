@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.chkb_hienmatkhau = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,12 +55,13 @@
             this.txt_matKhau.Margin = new System.Windows.Forms.Padding(2);
             this.txt_matKhau.Multiline = true;
             this.txt_matKhau.Name = "txt_matKhau";
+            this.txt_matKhau.PasswordChar = '*';
             this.txt_matKhau.Size = new System.Drawing.Size(145, 22);
             this.txt_matKhau.TabIndex = 9;
             // 
             // btn_dangNhap
             // 
-            this.btn_dangNhap.Location = new System.Drawing.Point(293, 227);
+            this.btn_dangNhap.Location = new System.Drawing.Point(277, 235);
             this.btn_dangNhap.Margin = new System.Windows.Forms.Padding(2);
             this.btn_dangNhap.Name = "btn_dangNhap";
             this.btn_dangNhap.Size = new System.Drawing.Size(80, 31);
@@ -70,7 +72,7 @@
             // 
             // btn_thoat
             // 
-            this.btn_thoat.Location = new System.Drawing.Point(383, 227);
+            this.btn_thoat.Location = new System.Drawing.Point(372, 235);
             this.btn_thoat.Margin = new System.Windows.Forms.Padding(2);
             this.btn_thoat.Name = "btn_thoat";
             this.btn_thoat.Size = new System.Drawing.Size(80, 31);
@@ -114,8 +116,6 @@
             // 
             // pictureBox2
             // 
-            //this.pictureBox2.BackgroundImage = global::GUI.Properties.Resources.bgc;
-            //this.pictureBox2.Image = global::GUI.Properties.Resources.logoFruit_removebg;
             this.pictureBox2.Location = new System.Drawing.Point(32, 124);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
@@ -124,13 +124,24 @@
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             // 
+            // chkb_hienmatkhau
+            // 
+            this.chkb_hienmatkhau.AutoSize = true;
+            this.chkb_hienmatkhau.Location = new System.Drawing.Point(320, 213);
+            this.chkb_hienmatkhau.Name = "chkb_hienmatkhau";
+            this.chkb_hienmatkhau.Size = new System.Drawing.Size(95, 17);
+            this.chkb_hienmatkhau.TabIndex = 17;
+            this.chkb_hienmatkhau.Text = "Hiện mật khẩu";
+            this.chkb_hienmatkhau.UseVisualStyleBackColor = true;
+            this.chkb_hienmatkhau.CheckedChanged += new System.EventHandler(this.chkb_hienmatkhau_CheckedChanged);
+            // 
             // frm_dangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::GUI.Properties.Resources.bgc;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(512, 330);
+            this.Controls.Add(this.chkb_hienmatkhau);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_taiKhoan);
@@ -161,5 +172,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.CheckBox chkb_hienmatkhau;
     }
 }
