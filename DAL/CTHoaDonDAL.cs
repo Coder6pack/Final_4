@@ -32,5 +32,45 @@ namespace DAL
             conn.Close();
             return rowsAffected > 0;
         }
+
+        public bool xoaCTHoaDon(CTHoaDonDTO cthd)
+        {
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Delete from CT_HoaDon Where id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", cthd.id);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
+            return rowsAffected > 0;
+        }
+
+        public List<CTHoaDonDTO> timKiemCTHoaDon(string id)
+        {
+            List<CTHoaDonDTO> dscthd = new List<CTHoaDonDTO>();
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Select * from CT_HoaDon Where id like @id", conn);
+            cmd.Parameters.AddWithValue("@id", "%" + id + "%");
+            cmd.Connection = conn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    CTHoaDonDTO hd = new CTHoaDonDTO();
+                    hd.id = reader.GetInt32(0);
+                    hd.traiCay_id = reader.GetInt32(1);
+                    hd.gia = reader.GetSqlMoney(2);
+                    hd.soLuong = reader.GetInt32(3);
+                    hd.giamGia = reader.GetSqlMoney(4);
+                    hd.tongGia = reader.GetSqlMoney(5);
+                    dscthd.Add(hd);
+                }
+                reader.Close();
+                conn.Close();
+            }
+
+            return dscthd;
+        }
     }
 }

@@ -18,5 +18,14 @@ namespace BUS
         {
             return cthoadon.themCTHoaDon(cthd);
         }
+        public bool xoaCTHoaDon(CTHoaDonDTO cthd)
+        {
+            return cthoadon.xoaCTHoaDon(cthd) ;
+        }
+
+        public List<CTHoaDonDTO> timKiemCTHoaDon(string cthd)
+        {
+            return cthoadon.timKiemCTHoaDon(cthd);
+        }
     }
 }

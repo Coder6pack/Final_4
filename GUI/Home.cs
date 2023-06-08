@@ -110,7 +110,17 @@ namespace Final3
 
         private void frm_home_Load(object sender, EventArgs e)
         {
-            openFormChid(new frm_gioHang(this.id));
+            if (quyen == "Quản lý" || quyen == "Nhân viên")
+            {
+                openFormChid(new frm_gioHang(this.id));
+            }else if (quyen == "Quản lý" || quyen == "Thủ kho")
+            {
+                openFormChid(new frm_quanLyTraiCay());
+            }else if (quyen == "Quản lý" || quyen == "Nhân viên")
+            {
+                openFormChid(new frm_HoaDon());
+            }
+
             lbl_maNhanVien.Text = this.id;
             lbl_tenNhanVien.Text = this.tenNhanVien;
 
@@ -135,12 +145,19 @@ namespace Final3
 
         private void btn_gioHang_Click(object sender, EventArgs e)
         {
-            openFormChid(new frm_gioHang());
+            if (quyen == "Quản lý" || quyen == "Nhân viên")
+            {
+                openFormChid(new frm_gioHang(this.id));
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền này !!!", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
 
         private void btn_hoaDon_Click(object sender, EventArgs e)
         {
-            if (quyen == "Quản lý")
+            if (quyen == "Quản lý" || quyen == "Nhân viên")
             {
                 openFormChid(new frm_HoaDon());
             }
@@ -152,7 +169,7 @@ namespace Final3
 
         private void btn_kho_Click(object sender, EventArgs e)
         {
-            if (quyen == "Quản lý")
+            if (quyen == "Quản lý" || quyen == "Thủ kho")
             {
                 openFormChid(new frm_quanLyTraiCay());
             }
@@ -164,7 +181,11 @@ namespace Final3
 
         private void btn_dangXuat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)

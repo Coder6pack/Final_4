@@ -24,6 +24,10 @@ namespace BUS
         {
             return traicays.suaTraiCay(traicay);
         }
+        public bool suaTraiCay2(TraiCayDTO traicay)
+        {
+            return traicays.suaTraiCay2(traicay);
+        }
         public bool themTraiCay(TraiCayDTO traicay)
         {
             return traicays.themTraiCay(traicay);

@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_maNhanVien = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_tenNhanVien = new System.Windows.Forms.Label();
+            this.a = new System.Windows.Forms.Label();
             this.btn_dangXuat = new System.Windows.Forms.Button();
             this.btn_thongKe = new System.Windows.Forms.Button();
             this.btn_kho = new System.Windows.Forms.Button();
@@ -37,10 +41,6 @@
             this.btn_gioHang = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_body = new System.Windows.Forms.Panel();
-            this.a = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl_tenNhanVien = new System.Windows.Forms.Label();
-            this.lbl_maNhanVien = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +66,42 @@
             this.panel1.Size = new System.Drawing.Size(296, 1387);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // lbl_maNhanVien
+            // 
+            this.lbl_maNhanVien.AutoSize = true;
+            this.lbl_maNhanVien.Location = new System.Drawing.Point(75, 302);
+            this.lbl_maNhanVien.Name = "lbl_maNhanVien";
+            this.lbl_maNhanVien.Size = new System.Drawing.Size(65, 25);
+            this.lbl_maNhanVien.TabIndex = 8;
+            this.lbl_maNhanVien.Text = "MNV:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 25);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "MNV:";
+            // 
+            // lbl_tenNhanVien
+            // 
+            this.lbl_tenNhanVien.AutoSize = true;
+            this.lbl_tenNhanVien.Location = new System.Drawing.Point(66, 239);
+            this.lbl_tenNhanVien.Name = "lbl_tenNhanVien";
+            this.lbl_tenNhanVien.Size = new System.Drawing.Size(55, 25);
+            this.lbl_tenNhanVien.TabIndex = 7;
+            this.lbl_tenNhanVien.Text = "Tên:";
+            // 
+            // a
+            // 
+            this.a.AutoSize = true;
+            this.a.Location = new System.Drawing.Point(14, 239);
+            this.a.Name = "a";
+            this.a.Size = new System.Drawing.Size(55, 25);
+            this.a.TabIndex = 7;
+            this.a.Text = "Tên:";
             // 
             // btn_dangXuat
             // 
@@ -171,6 +207,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources.logoFruit;
             this.pictureBox1.Location = new System.Drawing.Point(4, 4);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
@@ -188,42 +225,6 @@
             this.pn_body.Name = "pn_body";
             this.pn_body.Size = new System.Drawing.Size(2396, 1383);
             this.pn_body.TabIndex = 3;
-            // 
-            // a
-            // 
-            this.a.AutoSize = true;
-            this.a.Location = new System.Drawing.Point(14, 239);
-            this.a.Name = "a";
-            this.a.Size = new System.Drawing.Size(55, 25);
-            this.a.TabIndex = 7;
-            this.a.Text = "Tên:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 302);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 25);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "MNV:";
-            // 
-            // lbl_tenNhanVien
-            // 
-            this.lbl_tenNhanVien.AutoSize = true;
-            this.lbl_tenNhanVien.Location = new System.Drawing.Point(66, 239);
-            this.lbl_tenNhanVien.Name = "lbl_tenNhanVien";
-            this.lbl_tenNhanVien.Size = new System.Drawing.Size(55, 25);
-            this.lbl_tenNhanVien.TabIndex = 7;
-            this.lbl_tenNhanVien.Text = "Tên:";
-            // 
-            // lbl_maNhanVien
-            // 
-            this.lbl_maNhanVien.AutoSize = true;
-            this.lbl_maNhanVien.Location = new System.Drawing.Point(75, 302);
-            this.lbl_maNhanVien.Name = "lbl_maNhanVien";
-            this.lbl_maNhanVien.Size = new System.Drawing.Size(65, 25);
-            this.lbl_maNhanVien.TabIndex = 8;
-            this.lbl_maNhanVien.Text = "MNV:";
             // 
             // frm_home
             // 

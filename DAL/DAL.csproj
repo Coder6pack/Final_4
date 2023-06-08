@@ -51,6 +51,7 @@
     <Compile Include="lo_TraiCayDAL.cs" />
     <Compile Include="NhanVienAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quanLyLoaiTraiCayDAL.cs" />
     <Compile Include="TraiCay.cs" />
   </ItemGroup>
   <ItemGroup>

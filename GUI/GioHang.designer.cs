@@ -40,16 +40,11 @@
             this.hinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgv_dsDonHang = new System.Windows.Forms.DataGridView();
-            this.traiCay_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gia_cthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soLuong_cthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.nud_soLuong = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_lo = new System.Windows.Forms.TextBox();
+            this.txt_sl = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ptb_anhTraiCay = new System.Windows.Forms.PictureBox();
             this.txt_giamGia = new System.Windows.Forms.TextBox();
@@ -79,6 +74,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dtp_ngayLap = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
+            this.traiCay_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gia_cthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soLuong_cthd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dsTraiCay)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dsDonHang)).BeginInit();
@@ -192,7 +193,7 @@
             this.panel3.Controls.Add(this.btn_xoa);
             this.panel3.Controls.Add(this.nud_soLuong);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.txt_lo);
+            this.panel3.Controls.Add(this.txt_sl);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.ptb_anhTraiCay);
             this.panel3.Controls.Add(this.txt_giamGia);
@@ -230,7 +231,8 @@
             this.gia_cthd,
             this.soLuong_cthd,
             this.giamGia,
-            this.tongGia});
+            this.tongGia,
+            this.tongSo});
             this.dgv_dsDonHang.Location = new System.Drawing.Point(2, 305);
             this.dgv_dsDonHang.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_dsDonHang.Name = "dgv_dsDonHang";
@@ -238,45 +240,7 @@
             this.dgv_dsDonHang.RowTemplate.Height = 33;
             this.dgv_dsDonHang.Size = new System.Drawing.Size(565, 221);
             this.dgv_dsDonHang.TabIndex = 35;
-            // 
-            // traiCay_id
-            // 
-            this.traiCay_id.DataPropertyName = "traiCay_id";
-            this.traiCay_id.HeaderText = "Mã trái cây";
-            this.traiCay_id.MinimumWidth = 10;
-            this.traiCay_id.Name = "traiCay_id";
-            this.traiCay_id.ReadOnly = true;
-            // 
-            // gia_cthd
-            // 
-            this.gia_cthd.DataPropertyName = "gia_cthd";
-            this.gia_cthd.HeaderText = "Giá";
-            this.gia_cthd.MinimumWidth = 10;
-            this.gia_cthd.Name = "gia_cthd";
-            this.gia_cthd.ReadOnly = true;
-            // 
-            // soLuong_cthd
-            // 
-            this.soLuong_cthd.DataPropertyName = "soLuong";
-            this.soLuong_cthd.HeaderText = "Số lượng";
-            this.soLuong_cthd.MinimumWidth = 10;
-            this.soLuong_cthd.Name = "soLuong_cthd";
-            this.soLuong_cthd.ReadOnly = true;
-            // 
-            // giamGia
-            // 
-            this.giamGia.DataPropertyName = "giamGia";
-            this.giamGia.HeaderText = "Giảm giá";
-            this.giamGia.MinimumWidth = 10;
-            this.giamGia.Name = "giamGia";
-            this.giamGia.ReadOnly = true;
-            // 
-            // tongGia
-            // 
-            this.tongGia.DataPropertyName = "tongGia";
-            this.tongGia.HeaderText = "Tổng giá";
-            this.tongGia.MinimumWidth = 10;
-            this.tongGia.Name = "tongGia";
+            this.dgv_dsDonHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dsDonHang_CellContentClick);
             // 
             // btn_them
             // 
@@ -328,15 +292,15 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "Số lượng:";
             // 
-            // txt_lo
+            // txt_sl
             // 
-            this.txt_lo.Location = new System.Drawing.Point(355, 118);
-            this.txt_lo.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_lo.Multiline = true;
-            this.txt_lo.Name = "txt_lo";
-            this.txt_lo.ReadOnly = true;
-            this.txt_lo.Size = new System.Drawing.Size(46, 18);
-            this.txt_lo.TabIndex = 30;
+            this.txt_sl.Location = new System.Drawing.Point(355, 118);
+            this.txt_sl.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_sl.Multiline = true;
+            this.txt_sl.Name = "txt_sl";
+            this.txt_sl.ReadOnly = true;
+            this.txt_sl.Size = new System.Drawing.Size(46, 18);
+            this.txt_sl.TabIndex = 30;
             // 
             // label7
             // 
@@ -344,9 +308,9 @@
             this.label7.Location = new System.Drawing.Point(327, 121);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 26);
+            this.label7.Size = new System.Drawing.Size(48, 26);
             this.label7.TabIndex = 29;
-            this.label7.Text = "Lô:";
+            this.label7.Text = "SL:";
             // 
             // ptb_anhTraiCay
             // 
@@ -637,6 +601,53 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Ngày:";
             // 
+            // traiCay_id
+            // 
+            this.traiCay_id.DataPropertyName = "traiCay_id";
+            this.traiCay_id.HeaderText = "Mã trái cây";
+            this.traiCay_id.MinimumWidth = 10;
+            this.traiCay_id.Name = "traiCay_id";
+            this.traiCay_id.ReadOnly = true;
+            // 
+            // gia_cthd
+            // 
+            this.gia_cthd.DataPropertyName = "gia_cthd";
+            this.gia_cthd.HeaderText = "Giá";
+            this.gia_cthd.MinimumWidth = 10;
+            this.gia_cthd.Name = "gia_cthd";
+            this.gia_cthd.ReadOnly = true;
+            // 
+            // soLuong_cthd
+            // 
+            this.soLuong_cthd.DataPropertyName = "soLuong";
+            this.soLuong_cthd.HeaderText = "Số lượng";
+            this.soLuong_cthd.MinimumWidth = 10;
+            this.soLuong_cthd.Name = "soLuong_cthd";
+            this.soLuong_cthd.ReadOnly = true;
+            // 
+            // giamGia
+            // 
+            this.giamGia.DataPropertyName = "giamGia";
+            this.giamGia.HeaderText = "Giảm giá";
+            this.giamGia.MinimumWidth = 10;
+            this.giamGia.Name = "giamGia";
+            this.giamGia.ReadOnly = true;
+            // 
+            // tongGia
+            // 
+            this.tongGia.DataPropertyName = "tongGia";
+            this.tongGia.HeaderText = "Tổng giá";
+            this.tongGia.MinimumWidth = 10;
+            this.tongGia.Name = "tongGia";
+            // 
+            // tongSo
+            // 
+            this.tongSo.DataPropertyName = "tongSo";
+            this.tongSo.HeaderText = "tongSo";
+            this.tongSo.MinimumWidth = 10;
+            this.tongSo.Name = "tongSo";
+            this.tongSo.Visible = false;
+            // 
             // frm_gioHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 26F);
@@ -673,7 +684,7 @@
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.NumericUpDown nud_soLuong;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_lo;
+        private System.Windows.Forms.TextBox txt_sl;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox ptb_anhTraiCay;
         private System.Windows.Forms.TextBox txt_donGia;
@@ -710,12 +721,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HSD;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn hinh;
+        private System.Windows.Forms.TextBox txt_giamGia;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn traiCay_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn gia_cthd;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuong_cthd;
         private System.Windows.Forms.DataGridViewTextBoxColumn giamGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn tongGia;
-        private System.Windows.Forms.TextBox txt_giamGia;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongSo;
     }
 }

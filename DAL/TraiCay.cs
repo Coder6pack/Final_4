@@ -96,6 +96,19 @@ namespace DAL
             conn.Close();
             return rowsAffected > 0;
         }
+        public bool suaTraiCay2(TraiCayDTO traicay)
+        {
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE quanLyTraiCay SET soLuong =@soLuong Where id =@id", conn);
+            cmd.Parameters.AddWithValue("@id", traicay.id);
+
+            cmd.Parameters.AddWithValue("@soLuong", traicay.soLuong);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            conn.Close();
+            return rowsAffected > 0;
+        }
         public bool themTraiCay(TraiCayDTO traicay)
         {
             SqlConnection conn = sqlConnecTionData.connect();

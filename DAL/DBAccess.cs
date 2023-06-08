@@ -27,7 +27,7 @@ namespace DAL
             List<HoaDonDTO> hoadon = new List<HoaDonDTO>();
             SqlConnection conn = sqlConnecTionData.connect();
             conn.Open();
-            SqlCommand command = new SqlCommand("Select * from hoaDon", conn);
+            SqlCommand command = new SqlCommand("Select * from hoaDon Where trangThai = 0", conn);
             command.Connection = conn;
             SqlDataReader reader = command.ExecuteReader();
 
@@ -100,6 +100,30 @@ namespace DAL
             }
 
             return lo_TraiCay;
+        }
+        public List<quanLyLoaiTraiCay> loadquanLyTraiCayDTO()
+        {
+            List<quanLyLoaiTraiCay> quanlyloaitraicays = new List<quanLyLoaiTraiCay>();
+            SqlConnection conn = sqlConnecTionData.connect();
+            conn.Open();
+            SqlCommand command = new SqlCommand("Select * from quanLyLoaiTraiCay", conn);
+            command.Connection = conn;
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    quanLyLoaiTraiCay quanly_TraiCay = new quanLyLoaiTraiCay();
+                    quanly_TraiCay.id = reader.GetInt32(0);
+                    quanly_TraiCay.tenLoaiTraiCay = reader.GetString(1);
+                    quanly_TraiCay.trangThai = reader.GetInt32(2);
+                    quanlyloaitraicays.Add(quanly_TraiCay);
+                }
+
+            }
+
+            return quanlyloaitraicays;
         }
     }
 }
